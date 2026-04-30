@@ -1,4 +1,8 @@
 package structural.decorator;
 
-public interface PizzaDecorator {
+public abstract class PizzaDecorator implements Pizza{
+    protected  Pizza pizza;
+    public PizzaDecorator(Pizza pizza){
+        this.pizza = pizza;
+    }
 }
