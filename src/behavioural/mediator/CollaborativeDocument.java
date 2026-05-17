@@ -1,0 +1,22 @@
+package behavioural.mediator;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CollaborativeDocument implements DocumentMediator{
+    private List<User> users = new ArrayList<>();
+
+    @Override
+    public void join(User user) {
+        users.add(user);
+    }
+
+    @Override
+    public void broadcastChange(String change, User sender) {
+        for (User user : users) {
+            if (user != sender) {
+                user.receiveChange(change, sender);
+            }
+        }
+    }
+}
